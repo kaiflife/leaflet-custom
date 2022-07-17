@@ -32,7 +32,8 @@ export default class CustomMap {
   }
 
 
-  // MARKER
+  // TRACKED MARKER
+  // https://github.com/alexandra-c/leaflet-tracking-marker
   //
   computeBearing(previousPosition = [0, 0], nexPosition) {
     let bearing = Math.atan2(nexPosition[0] - previousPosition[0], nexPosition[1] - previousPosition[1])
@@ -91,9 +92,9 @@ export default class CustomMap {
   }
 
   // Marker Cluster Group
+  // https://github.com/Leaflet/Leaflet.markercluster
   //
   addClusterGroup({
-    map,
     coordinates = [],
     chunkedLoading = true,
     polygonOptions = {
@@ -109,6 +110,6 @@ export default class CustomMap {
     coordinates.forEach(function (latLng) {
       markers.addLayer(this.L.marker(latLng));
     });
-    map.addLayer(markers);
+    this.map.addLayer(markers);
   }
 }
